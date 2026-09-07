@@ -1,0 +1,2785 @@
+/* =========================================================
+   VLINC FARMS — COMPLETE WEBSITE STYLESHEET
+   ========================================================= */
+
+/* =========================================================
+   1. RESET & GLOBAL SETTINGS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark-green: #123d22;
+    --deep-green: #155c2e;
+    --primary-green: #176b35;
+    --medium-green: #3f8738;
+    --light-green: #8fbd55;
+    --pale-green: #e8f3df;
+
+    --white: #ffffff;
+    --off-white: #f7faf4;
+    --text: #263a2b;
+    --muted: #5b6d5f;
+
+    --gold: #b88920;
+    --border: rgba(255, 255, 255, 0.75);
+
+    --shadow-sm: 0 5px 18px rgba(20, 70, 30, 0.10);
+    --shadow-md: 0 12px 35px rgba(20, 70, 30, 0.15);
+    --shadow-lg: 0 20px 55px rgba(20, 70, 30, 0.20);
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+
+    --transition: 0.3s ease;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.16),
+            rgba(255, 255, 255, 0.16)
+        ),
+        url("farm.jpg") center center / cover fixed no-repeat;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* If your HTML uses class="body" */
+.body {
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: var(--primary-green);
+    color: white;
+}
+
+
+/* =========================================================
+   2. GENERAL UTILITY CLASSES
+   ========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-label {
+    display: block;
+    color: var(--medium-green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   3. OLD / ORIGINAL NAVIGATION SUPPORT
+   ========================================================= */
+
+/*
+   These rules allow your ORIGINAL homepage navigation
+   to look much better without requiring you to change
+   the HTML immediately.
+*/
+
+body > div:first-child {
+    position: relative;
+    z-index: 50;
+}
+
+body > div:first-child > h1 {
+    color: var(--deep-green);
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.nav-button {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(23, 107, 53, 0.92);
+    color: white;
+    padding: 0;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(23, 107, 53, 0.16);
+    transition: var(--transition);
+}
+
+.nav-button li {
+    list-style: none;
+}
+
+.nav-button a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 9px 17px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-button:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(23, 107, 53, 0.22);
+}
+
+.nav-button:hover a {
+    color: var(--primary-green);
+}
+
+
+/* =========================================================
+   4. MODERN NAVIGATION
+   ========================================================= */
+
+.navbar,
+.farm-navbar {
+    width: 100%;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 6%;
+
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 25px rgba(25, 70, 30, 0.08);
+}
+
+.logo,
+.farm-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+
+    color: var(--deep-green);
+    font-weight: 900;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.logo span,
+.farm-logo span {
+    font-size: 25px;
+}
+
+.logo small,
+.farm-logo small {
+    color: #719b3e;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.nav-links,
+.farm-nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a,
+.farm-nav-links a {
+    display: block;
+
+    padding: 10px 16px;
+
+    color: #29452f;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    border-radius: 25px;
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.farm-nav-links a:hover,
+.farm-nav-links a.active {
+    color: white;
+    background: var(--primary-green);
+
+    box-shadow:
+        0 6px 18px rgba(23, 107, 53, 0.22);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   5. HERO SECTION
+   ========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(8, 45, 20, 0.25),
+            rgba(8, 45, 20, 0.55)
+        ),
+        url("farm.jpg") center / cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.10),
+            transparent 55%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(900px, 92%);
+
+    padding: 50px 45px;
+
+    background: rgba(255, 255, 255, 0.66);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+
+    animation: heroAppear 0.8s ease both;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-tag,
+.hero-label {
+    display: inline-block;
+
+    color: var(--medium-green);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.hero h1,
+.hero-content h1 {
+    color: var(--dark-green);
+
+    font-size: clamp(40px, 6vw, 72px);
+
+    line-height: 1.05;
+
+    margin: 8px 0 18px;
+
+    font-weight: 900;
+}
+
+.hero p,
+.hero-content p {
+    max-width: 720px;
+    margin: 0 auto;
+
+    color: #344b3a;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   6. HERO BUTTONS
+   ========================================================= */
+
+.hero-button,
+.btn,
+.primary-button {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 27px;
+
+    background: var(--primary-green);
+    color: white;
+
+    border: 2px solid var(--primary-green);
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 20px rgba(23, 107, 53, 0.20);
+
+    transition: var(--transition);
+}
+
+.hero-button:hover,
+.btn:hover,
+.primary-button:hover {
+    background: #0d5228;
+    border-color: #0d5228;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(23, 107, 53, 0.28);
+}
+
+.secondary-button {
+    display: inline-block;
+
+    margin-top: 25px;
+    margin-left: 8px;
+
+    padding: 13px 27px;
+
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--primary-green);
+
+    border: 2px solid var(--primary-green);
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 750;
+
+    transition: var(--transition);
+}
+
+.secondary-button:hover {
+    background: var(--primary-green);
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   7. WELCOME / INTRODUCTION
+   ========================================================= */
+
+.welcome-section,
+.crop-introduction,
+.crop-intro {
+    width: min(900px, 90%);
+
+    margin: 55px auto 35px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.welcome-section h2,
+.crop-introduction h2,
+.crop-intro h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.15;
+
+    margin: 7px 0 14px;
+
+    font-weight: 850;
+}
+
+.welcome-section p,
+.crop-introduction p,
+.crop-intro p {
+    color: #425447;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   8. FARM FEATURE CARDS
+   ========================================================= */
+
+.farm-areas,
+.crop-categories {
+    width: min(1150px, 90%);
+
+    margin: 40px auto 65px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.farm-card,
+.category-card {
+    padding: 30px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.66);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow-md);
+
+    transition: var(--transition);
+}
+
+.farm-card:hover,
+.category-card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.82);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.farm-card img,
+.category-card img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
+}
+
+.category-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.farm-card h3,
+.category-card h3 {
+    color: var(--deep-green);
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.farm-card p,
+.category-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   9. SERVICES SECTION
+   ========================================================= */
+
+.services-section {
+    width: min(1150px, 90%);
+
+    margin: 60px auto;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.58);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow-md);
+}
+
+.services-section h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(30px, 4vw, 45px);
+
+    margin-bottom: 12px;
+}
+
+.services-section > p {
+    max-width: 800px;
+
+    margin: 0 auto 30px;
+
+    color: var(--muted);
+}
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.service-card,
+.service-item {
+    padding: 25px 18px;
+
+    background: rgba(235, 246, 229, 0.72);
+
+    border: 1px solid rgba(72, 130, 65, 0.15);
+
+    border-radius: 18px;
+
+    transition: var(--transition);
+}
+
+.service-card:hover,
+.service-item:hover {
+    transform: translateY(-5px);
+
+    background: rgba(220, 239, 211, 0.90);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card h3,
+.service-item h3 {
+    color: var(--deep-green);
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+.service-card p,
+.service-item p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   10. CROPS PREVIEW
+   ========================================================= */
+
+.crops-preview {
+    width: min(1100px, 90%);
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow-md);
+}
+
+.crops-preview h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(28px, 4vw, 43px);
+
+    margin-bottom: 12px;
+}
+
+.crops-preview p {
+    color: var(--muted);
+
+    max-width: 800px;
+
+    margin: 0 auto 25px;
+}
+
+.crop-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    list-style: none;
+}
+
+.crop-list li {
+    padding: 8px 15px;
+
+    background: rgba(76, 145, 64, 0.12);
+
+    border: 1px solid rgba(76, 145, 64, 0.22);
+
+    border-radius: 30px;
+
+    color: #39752f;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.crop-list li:hover {
+    background: var(--primary-green);
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   11. CALL TO ACTION
+   ========================================================= */
+
+.cta-section {
+    width: min(1050px, 90%);
+
+    margin: 70px auto;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 61, 34, 0.96),
+            rgba(23, 107, 53, 0.94)
+        );
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-section h2 {
+    font-size: clamp(28px, 4vw, 45px);
+
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #e1f0e2;
+
+    font-size: 15px;
+}
+
+.cta-section .hero-button {
+    background: white;
+    color: var(--primary-green);
+
+    border-color: white;
+}
+
+.cta-section .hero-button:hover {
+    background: var(--light-green);
+
+    color: var(--dark-green);
+
+    border-color: var(--light-green);
+}
+
+
+/* =========================================================
+   12. CROPS HERO
+   ========================================================= */
+
+.crop-hero {
+    min-height: 460px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.08)
+        ),
+        url("farm.jpg") center / cover no-repeat;
+}
+
+.hero-overlay {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.crop-hero .hero-content {
+    max-width: 850px;
+
+    padding: 45px 50px;
+}
+
+
+/* =========================================================
+   13. CROP TABLE SECTION
+   ========================================================= */
+
+.crop-section {
+    width: 94%;
+    max-width: 1600px;
+
+    margin: 50px auto 75px;
+}
+
+.table-heading {
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.table-heading span {
+    color: var(--medium-green);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.table-heading h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(28px, 4vw, 45px);
+
+    margin: 7px 0;
+}
+
+.table-heading p {
+    color: #415446;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   14. CROP TABLE CONTAINER
+   ========================================================= */
+
+.crop-table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: rgba(255, 255, 255, 0.68);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   15. CROP TABLE
+   ========================================================= */
+
+.crop-table {
+    width: 100%;
+
+    min-width: 1600px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+}
+
+.crop-table thead th {
+    padding: 18px 15px;
+
+    background: rgba(25, 101, 47, 0.96);
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-bottom: 4px solid var(--light-green);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 5;
+}
+
+.crop-table thead th:first-child {
+    border-top-left-radius: 20px;
+}
+
+.crop-table thead th:last-child {
+    border-top-right-radius: 20px;
+}
+
+.crop-table tbody td {
+    padding: 17px 15px;
+
+    vertical-align: top;
+
+    color: #29402f;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    border-right: 1px solid rgba(60, 105, 60, 0.16);
+
+    border-bottom: 1px solid rgba(60, 105, 60, 0.16);
+
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.crop-table tbody tr:nth-child(even) td {
+    background: rgba(224, 239, 218, 0.58);
+}
+
+.crop-table tbody tr:hover td {
+    background: rgba(199, 229, 188, 0.88);
+
+    transition: 0.2s ease;
+}
+
+.crop-table td strong {
+    display: block;
+
+    color: var(--deep-green);
+
+    font-size: 15px;
+
+    margin-bottom: 6px;
+
+    white-space: nowrap;
+}
+
+.crop-table td small {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: rgba(76, 145, 64, 0.14);
+
+    border: 1px solid rgba(76, 145, 64, 0.22);
+
+    color: #39752f;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.crop-price {
+    color: #98600d !important;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   16. CROP / LIVESTOCK NOTES
+   ========================================================= */
+
+.crop-note,
+.table-note {
+    margin-top: 18px;
+
+    padding: 18px 20px;
+
+    background: rgba(255, 251, 232, 0.90);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-left: 5px solid var(--gold);
+
+    border-radius: 10px;
+
+    color: #635627;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   17. LIVESTOCK SECTION
+   ========================================================= */
+
+.livestock-section {
+    width: 94%;
+    max-width: 1550px;
+
+    margin: 60px auto 75px;
+}
+
+.livestock-heading {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.livestock-heading span {
+    color: var(--medium-green);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.livestock-heading h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(30px, 4vw, 52px);
+
+    margin: 8px 0;
+
+    font-weight: 850;
+}
+
+.livestock-heading p {
+    max-width: 750px;
+
+    margin: auto;
+
+    color: #425447;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   18. LIVESTOCK TABLE CONTAINER
+   ========================================================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(35, 75, 30, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   19. LIVESTOCK TABLE
+   ========================================================= */
+
+.livestock-table {
+    width: 100%;
+
+    min-width: 1500px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+}
+
+.livestock-table thead th {
+    background: rgba(28, 101, 47, 0.95);
+
+    color: white;
+
+    padding: 18px 15px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-bottom: 4px solid var(--light-green);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 5;
+}
+
+.livestock-table thead th:first-child {
+    border-top-left-radius: 20px;
+}
+
+.livestock-table thead th:last-child {
+    border-top-right-radius: 20px;
+}
+
+.livestock-table tbody td {
+    padding: 17px 15px;
+
+    font-size: 13px;
+
+    color: #263a2b;
+
+    vertical-align: top;
+
+    line-height: 1.55;
+
+    border-right: 1px solid rgba(75, 112, 73, 0.18);
+
+    border-bottom: 1px solid rgba(75, 112, 73, 0.18);
+
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.livestock-table tbody tr:nth-child(even) td {
+    background: rgba(225, 239, 217, 0.60);
+}
+
+.livestock-table tbody tr:hover td {
+    background: rgba(202, 232, 190, 0.85);
+
+    transition: 0.25s ease;
+}
+
+.livestock-table td strong {
+    display: block;
+
+    color: var(--deep-green);
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+    white-space: nowrap;
+}
+
+.livestock-table td small {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    background: rgba(76, 145, 64, 0.14);
+
+    border: 1px solid rgba(76, 145, 64, 0.22);
+
+    border-radius: 30px;
+
+    color: #39752f;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.livestock-table .price {
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: #9b5b08;
+
+    white-space: nowrap;
+}
+
+.livestock-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+.livestock-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+
+/* =========================================================
+   20. TABLE SCROLLBARS
+   ========================================================= */
+
+.table-container::-webkit-scrollbar,
+.crop-table-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.table-container::-webkit-scrollbar-track,
+.crop-table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.55);
+
+    border-radius: 20px;
+}
+
+.table-container::-webkit-scrollbar-thumb,
+.crop-table-container::-webkit-scrollbar-thumb {
+    background: #4d8d3b;
+
+    border-radius: 20px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover,
+.crop-table-container::-webkit-scrollbar-thumb:hover {
+    background: #286c2e;
+}
+
+
+/* =========================================================
+   21. FOOTER
+   ========================================================= */
+
+footer,
+.farm-footer {
+    margin-top: 70px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: rgba(18, 61, 34, 0.97);
+
+    color: white;
+
+    border-top: 3px solid var(--light-green);
+}
+
+footer h3,
+.farm-footer h3 {
+    color: #b9dc82;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 3px;
+
+    font-size: 21px;
+}
+
+footer p,
+.farm-footer p {
+    margin: 5px;
+
+    color: #d7e6d9;
+
+    font-size: 13px;
+}
+
+footer a,
+.farm-footer a {
+    color: #c9e894;
+
+    transition: var(--transition);
+}
+
+footer a:hover,
+.farm-footer a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   22. CONTACT PAGE SUPPORT
+   ========================================================= */
+
+.contact-section {
+    width: min(1000px, 90%);
+
+    margin: 60px auto;
+
+    padding: 45px 35px;
+
+    background: rgba(255, 255, 255, 0.66);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow-lg);
+
+    text-align: center;
+}
+
+.contact-section h1,
+.contact-section h2 {
+    color: var(--dark-green);
+
+    margin-bottom: 12px;
+}
+
+.contact-section p {
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+.contact-card {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: rgba(232, 243, 223, 0.75);
+
+    border: 1px solid rgba(65, 130, 60, 0.15);
+
+    border-radius: 18px;
+}
+
+.contact-card h3 {
+    color: var(--deep-green);
+
+    margin-bottom: 8px;
+}
+
+.contact-card a {
+    color: var(--primary-green);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   23. ABOUT PAGE SUPPORT
+   ========================================================= */
+
+.about-section {
+    width: min(1050px, 90%);
+
+    margin: 55px auto;
+
+    padding: 45px 40px;
+
+    background: rgba(255, 255, 255, 0.64);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.about-section h1,
+.about-section h2 {
+    color: var(--dark-green);
+
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    color: #415446;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.mission-box,
+.vision-box {
+    padding: 25px;
+
+    margin-top: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(232, 243, 223, 0.72);
+
+    border-left: 5px solid var(--primary-green);
+}
+
+.mission-box h3,
+.vision-box h3 {
+    color: var(--deep-green);
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   24. IMAGE GALLERY SUPPORT
+   ========================================================= */
+
+.image-gallery {
+    width: min(1150px, 90%);
+
+    margin: 50px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.image-gallery img {
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 3px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow: var(--shadow-md);
+
+    transition: var(--transition);
+}
+
+.image-gallery img:hover {
+    transform: scale(1.025);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================================
+   25. FORM SUPPORT
+   ========================================================= */
+
+form {
+    width: 100%;
+
+    max-width: 750px;
+
+    margin: 25px auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--deep-green);
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid rgba(57, 117, 47, 0.25);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-green);
+
+    box-shadow:
+        0 0 0 3px rgba(23, 107, 53, 0.10);
+
+    background: white;
+}
+
+
+/* =========================================================
+   26. WHATSAPP / CONTACT BUTTON
+   ========================================================= */
+
+.whatsapp-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 22px;
+
+    margin-top: 15px;
+
+    background: #25d366;
+
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    box-shadow: 0 7px 20px rgba(37, 211, 102, 0.22);
+
+    transition: var(--transition);
+}
+
+.whatsapp-button:hover {
+    background: #1da851;
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.30);
+}
+
+
+/* =========================================================
+   27. RESPONSIVE — TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar,
+    .farm-navbar {
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px 20px;
+    }
+
+    .nav-links,
+    .farm-nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .farm-areas,
+    .crop-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        min-height: 560px;
+    }
+
+    .hero-content {
+        padding: 40px 30px;
+    }
+
+    .crop-hero {
+        min-height: 420px;
+    }
+}
+
+
+/* =========================================================
+   28. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .navbar,
+    .farm-navbar {
+        padding: 13px 12px;
+
+        position: relative;
+    }
+
+    .logo span,
+    .farm-logo span {
+        font-size: 21px;
+    }
+
+    .logo small,
+    .farm-logo small {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .nav-links,
+    .farm-nav-links {
+        width: 100%;
+
+        gap: 3px;
+    }
+
+    .nav-links a,
+    .farm-nav-links a {
+        padding: 7px 9px;
+
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 500px;
+
+        padding: 40px 12px;
+    }
+
+    .hero-content {
+        width: 96%;
+
+        padding: 35px 20px;
+
+        border-radius: 20px;
+    }
+
+    .hero h1,
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero p,
+    .hero-content p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .hero-button,
+    .primary-button,
+    .secondary-button {
+        display: block;
+
+        width: 100%;
+
+        margin: 15px 0 0;
+    }
+
+    .welcome-section,
+    .crop-introduction,
+    .crop-intro {
+        width: 94%;
+
+        padding: 20px;
+
+        margin-top: 35px;
+    }
+
+    .welcome-section h2,
+    .crop-introduction h2,
+    .crop-intro h2 {
+        font-size: 30px;
+    }
+
+    .farm-areas,
+    .crop-categories {
+        width: 94%;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .farm-card,
+    .category-card {
+        padding: 25px 20px;
+    }
+
+    .services-section {
+        width: 94%;
+
+        padding: 35px 18px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .crops-preview {
+        width: 94%;
+
+        padding: 30px 18px;
+    }
+
+    .cta-section {
+        width: 94%;
+
+        padding: 40px 20px;
+    }
+
+    .crop-hero {
+        min-height: 360px;
+
+        padding: 35px 12px;
+    }
+
+    .crop-hero .hero-content {
+        padding: 30px 20px;
+    }
+
+    .crop-section,
+    .livestock-section {
+        width: 96%;
+    }
+
+    .crop-table-container,
+    .table-container {
+        border-radius: 15px;
+    }
+
+    .crop-table {
+        min-width: 1600px;
+    }
+
+    .livestock-table {
+        min-width: 1500px;
+    }
+
+    .livestock-heading h2 {
+        font-size: 30px;
+    }
+
+    .livestock-heading p {
+        font-size: 14px;
+    }
+
+    .about-section,
+    .contact-section {
+        width: 94%;
+
+        padding: 30px 20px;
+
+        border-radius: 20px;
+    }
+
+    .image-gallery {
+        width: 94%;
+
+        grid-template-columns: 1fr;
+    }
+
+    .image-gallery img {
+        height: 220px;
+    }
+}
+
+
+/* =========================================================
+   29. VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .nav-links a,
+    .farm-nav-links a {
+        padding: 6px 7px;
+
+        font-size: 11px;
+    }
+
+    .hero h1,
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content {
+        padding: 28px 16px;
+    }
+
+    .section-label,
+    .hero-label,
+    .hero-tag {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .crop-table {
+        min-width: 1550px;
+    }
+
+    .livestock-table {
+        min-width: 1450px;
+    }
+}
+
+
+/* =========================================================
+   30. ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================================
+   ABOUT PAGE ENHANCEMENTS
+========================================================= */
+
+.about-hero {
+    min-height: 480px;
+}
+
+.about-text {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    color: #405345;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.mission-vision-section {
+    width: min(1150px, 90%);
+    margin: 65px auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.mission-box,
+.vision-box {
+    position: relative;
+
+    padding: 42px 35px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.78),
+            rgba(231, 244, 222, 0.70)
+        );
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    box-shadow: var(--shadow-md);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+.mission-box::before,
+.vision-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background: rgba(143, 189, 85, 0.12);
+
+    right: -45px;
+    top: -45px;
+}
+
+.mission-box:hover,
+.vision-box:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mission-box h2,
+.vision-box h2 {
+    position: relative;
+
+    color: var(--dark-green);
+
+    font-size: 30px;
+
+    margin: 5px 0 15px;
+}
+
+.mission-box p,
+.vision-box p {
+    position: relative;
+
+    color: #405345;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.mission-box {
+    border-top: 5px solid var(--primary-green);
+}
+
+.vision-box {
+    border-top: 5px solid var(--light-green);
+}
+
+@media (max-width: 700px) {
+
+    .mission-vision-section {
+        width: 94%;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin: 45px auto;
+    }
+
+    .mission-box,
+    .vision-box {
+        padding: 32px 23px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .about-hero {
+        min-height: 400px;
+    }
+}
+/* =========================================================
+   EXCLUSIVE CONTACT PAGE
+========================================================= */
+
+.contact-hero {
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(8, 48, 20, 0.35),
+            rgba(8, 48, 20, 0.62)
+        ),
+        url("farm.jpg") center / cover no-repeat;
+}
+
+.contact-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.12),
+            transparent 60%
+        );
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(850px, 94%);
+
+    padding: 55px 40px;
+
+    background: rgba(255, 255, 255, 0.68);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 50, 15, 0.25);
+}
+
+.contact-hero-content h1 {
+    color: var(--dark-green);
+
+    font-size: clamp(42px, 7vw, 70px);
+
+    line-height: 1.05;
+
+    margin: 8px 0 18px;
+
+    font-weight: 900;
+}
+
+.contact-hero-content p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #354c3a;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.contact-hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.contact-primary-button,
+.contact-whatsapp-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 14px 26px;
+
+    border-radius: 30px;
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.contact-primary-button {
+    background: var(--primary-green);
+
+    color: white;
+
+    border: 2px solid var(--primary-green);
+
+    box-shadow:
+        0 8px 20px rgba(23, 107, 53, 0.22);
+}
+
+.contact-primary-button:hover {
+    background: #0d5228;
+
+    transform: translateY(-3px);
+}
+
+.contact-whatsapp-button {
+    background: #25d366;
+
+    color: white;
+
+    border: 2px solid #25d366;
+
+    box-shadow:
+        0 8px 20px rgba(37, 211, 102, 0.20);
+}
+
+.contact-whatsapp-button:hover {
+    background: #1da851;
+
+    border-color: #1da851;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   CONTACT OPTIONS
+========================================================= */
+
+.contact-options-section {
+    width: min(1150px, 92%);
+
+    margin: 70px auto 40px;
+}
+
+.contact-section-heading {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.contact-section-heading h2 {
+    color: var(--dark-green);
+
+    font-size: clamp(28px, 4vw, 44px);
+
+    margin: 5px 0 10px;
+}
+
+.contact-section-heading p {
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+.contact-options-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.contact-option-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.67);
+
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow-md);
+
+    transition: 0.3s ease;
+}
+
+.contact-option-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: rgba(76, 145, 64, 0.13);
+
+    font-size: 32px;
+}
+
+.contact-option-card h3 {
+    color: var(--deep-green);
+
+    font-size: 21px;
+
+    margin-bottom: 9px;
+}
+
+.contact-option-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    min-height: 70px;
+}
+
+.contact-card-button {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 11px 20px;
+
+    border-radius: 25px;
+
+    background: var(--primary-green);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    transition: 0.3s ease;
+}
+
+.contact-card-button:hover {
+    transform: translateY(-2px);
+
+    background: #0d5228;
+
+    color: white;
+}
+
+.whatsapp-card {
+    border-top: 4px solid #25d366;
+}
+
+.whatsapp-link {
+    background: #25d366;
+}
+
+.whatsapp-link:hover {
+    background: #1da851;
+}
+
+
+/* =========================================================
+   PHONE NUMBER
+========================================================= */
+
+.phone-section {
+    width: min(850px, 92%);
+
+    margin: 55px auto;
+}
+
+.phone-card {
+    padding: 45px 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 61, 34, 0.96),
+            rgba(23, 107, 53, 0.93)
+        );
+
+    color: white;
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.phone-card .section-label {
+    color: #b9dc82;
+}
+
+.phone-card h2 {
+    font-size: clamp(35px, 7vw, 58px);
+
+    letter-spacing: 2px;
+
+    margin: 5px 0;
+
+    color: white;
+}
+
+.phone-card p {
+    color: #dcebdc;
+
+    margin-bottom: 20px;
+}
+
+.copy-number-button {
+    padding: 11px 20px;
+
+    border: 2px solid white;
+
+    background: white;
+
+    color: var(--deep-green);
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    transition: 0.3s ease;
+}
+
+.copy-number-button:hover {
+    background: transparent;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+.copy-message {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #d8efb6;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   QUICK ENQUIRIES
+========================================================= */
+
+.quick-enquiry-section {
+    width: min(1100px, 92%);
+
+    margin: 70px auto;
+}
+
+.quick-enquiry-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.quick-enquiry-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 130px;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 20px;
+
+    color: var(--deep-green);
+
+    font-size: 35px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.3s ease;
+}
+
+.quick-enquiry-card span {
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.quick-enquiry-card:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, 0.85);
+
+    box-shadow: var(--shadow-md);
+
+    color: var(--primary-green);
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form-section {
+    width: min(900px, 92%);
+
+    margin: 70px auto;
+
+    padding: 45px 35px;
+
+    background: rgba(255, 255, 255, 0.67);
+
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.farm-contact-form {
+    max-width: 100%;
+
+    margin: 0;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.farm-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.farm-contact-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--deep-green);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.farm-contact-form input,
+.farm-contact-form select,
+.farm-contact-form textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid rgba(57, 117, 47, 0.20);
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.farm-contact-form textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.farm-contact-form input:focus,
+.farm-contact-form select:focus,
+.farm-contact-form textarea:focus {
+    border-color: var(--primary-green);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(23, 107, 53, 0.08);
+}
+
+.send-enquiry-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: var(--primary-green);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(23, 107, 53, 0.20);
+
+    transition: 0.3s ease;
+}
+
+.send-enquiry-button:hover {
+    background: #0d5228;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(23, 107, 53, 0.27);
+}
+
+
+/* =========================================================
+   BUSINESS INFORMATION
+========================================================= */
+
+.business-info-section {
+    width: min(1100px, 92%);
+
+    margin: 60px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.business-info-card {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.63);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.business-info-icon {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.business-info-card h3 {
+    color: var(--deep-green);
+
+    margin-bottom: 5px;
+}
+
+.business-info-card p {
+    color: var(--text);
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.business-info-card small {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CONTACT PAGE MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .contact-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-enquiry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .business-info-section {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .contact-hero {
+        min-height: 500px;
+
+        padding: 40px 12px;
+    }
+
+    .contact-hero-content {
+        padding: 38px 20px;
+
+        border-radius: 22px;
+    }
+
+    .contact-hero-content h1 {
+        font-size: 40px;
+    }
+
+    .contact-hero-content p {
+        font-size: 14px;
+    }
+
+    .contact-hero-buttons {
+        flex-direction: column;
+    }
+
+    .contact-primary-button,
+    .contact-whatsapp-button {
+        width: 100%;
+    }
+
+    .contact-options-section,
+    .quick-enquiry-section,
+    .phone-section,
+    .business-info-section {
+        width: 94%;
+    }
+
+    .contact-form-section {
+        width: 94%;
+
+        padding: 35px 20px;
+
+        border-radius: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .quick-enquiry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-enquiry-card {
+        min-height: 110px;
+    }
+
+    .phone-card {
+        padding: 38px 18px;
+    }
+
+    .phone-card h2 {
+        font-size: 38px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .quick-enquiry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero-content h1 {
+        font-size: 34px;
+    }
+
+    .phone-card h2 {
+        font-size: 31px;
+    }
+
+}
